@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bg-container-register {
+    background-color: #ffffff;
+    /* height: 100vh; */
+    padding: 15px;
+    display: flex;
+}
+
+.left-box {
+    width: 50%;
+    padding: 60px 30px;
+    /* background-color: #e4f8fc; */
+    text-align: center;
+}
+.left-image {
+    margin-left: 30px;
+}
+.register-left-image {
+    width: 500px;
+}
+.text-content-register {
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.join-the-community {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.register-description {
+    font-size: 18px;
+    font-weight: 500;
+    color: #949494;
+    margin-top: 8px;
+}
+
+.right-box {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    min-width: 500px;
+}
+.upper-part-form {
+    text-align: center;
+}
+
+.edu-growth-logo-heading {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.create-your-account {
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+
+.start-your-journey {
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 15px;
+    color: #949494;
+}
+
+.select-image {
+    border: 2px dashed #a9a9a9;
+    border-radius: 8px;
+}
+
+.select-image:hover {
+    background-color: rgba(92, 163, 255, 0.307);
+    border: 2px dashed rgb(92, 163, 255);
+}
+#sign-in {
+    color: blue;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#sign-in:hover {
+    color: rgb(140, 140, 255);
+}
