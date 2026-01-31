@@ -4,6 +4,9 @@ import RegisterImage from "../../assets/Registerpage.png"
 import { RiGraduationCapFill } from "react-icons/ri";
 import { MdOutlineFileUpload } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { registerUser } from "../../services/authService"
+import { useNavigate } from "react-router-dom"
+
 
 import './Register.css'
 
@@ -17,6 +20,8 @@ function Register() {
   const [password, setPassword] = useState("")
   const [nameError, setNameError] = useState("")
   const [emailError, setEmailError] = useState("")
+  const navigate = useNavigate()
+
 
   const handleFileChange = (e) => {
     setPhoto(e.target.files[0])
@@ -39,7 +44,7 @@ function Register() {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
         e.preventDefault()
 
         let valid = true
@@ -67,16 +72,24 @@ function Register() {
             valid = false
         }
 
-        console.log({
-            name,
-            email,
-            password,
-            role,
-            team,
-            skill,
-            photo
-        })
-        console.log("REGISTER DATA:", formData)
+        if(!valid) return
+
+        const formData = new FormData();
+        formData.append("name", name)
+        formData.append("email", email)
+        formData.append("password", password)
+        formData.append("role", role)
+        formData.append("team", team)
+        formData.append("skill", skill)
+        formData.append("photo", photo)
+
+        try{
+           const res = await registerUser(formData)
+            alert("registration Successfull")
+            navigate("/login")
+        }catch(err){
+            alert(err.response?.data?.messsage || "Registration Failed")
+        }
 
     }
   return (
@@ -134,7 +147,7 @@ function Register() {
                 </div>
 
                 
-                {role === "student" && (
+                {role !== "admin" && (
                     <div className="mb-3">
                     <label>Select Team</label>
                     <select

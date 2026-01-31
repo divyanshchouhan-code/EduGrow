@@ -2,6 +2,8 @@ import React from 'react'
 import {Routes, Route, Navigate} from "react-router-dom";
 import Login from '../pages/auth/Login.jsx';
 import Register from '../pages/auth/Register.jsx';
+import Dashboard from '../pages/Dashboard.jsx';
+import ProtectedRoute from './ProtectedRoute.jsx';
 
 function AppRoutes() {
   return (
@@ -11,7 +13,7 @@ function AppRoutes() {
             <Route path='/login' element={<Login />}/>
             <Route path='/register' element={<Register />}/>
 
-            {/* <Route path='/dashboard' element={<Dashboard />}/> */}
+            <Route path='/dashboard' element={<ProtectedRoute><Dashboard /></ProtectedRoute>}/>
         </Routes>
       
     </div>
